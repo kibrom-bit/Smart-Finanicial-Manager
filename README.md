@@ -1,1 +1,5 @@
-"# Smart-Finanicial-Manager" 
+"# Smart-Finanicial-Manager"
+   makes life easy ! 
+
+
+
