@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-5">
+  <h2>Dashboard</h2>
+  <div class="row">
+    <!-- Budget Summary -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Budget</h5>
+          <p class="card-text">Total Income: $<%= budget.totalIncome %></p>
+          <a href="/dashboard/add-budget" class="btn btn-primary">Edit Budget</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Expense Button -->
+    <div class="col-md-4">
+      <a href="/expense/add" class="btn btn-success">Add Expense</a>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

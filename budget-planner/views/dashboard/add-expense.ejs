@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Add Expense</div>
+        <div class="card-body">
+          <form action="/expense/add" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Category</label>
+              <select name="category" class="form-select" required>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Rent">Rent</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Amount</label>
+              <input type="number" name="amount" class="form-control" step="0.01" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Date</label>
+              <input type="date" name="date" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Expense</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

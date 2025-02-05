@@ -1,0 +1,25 @@
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE budgets (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  month VARCHAR(20) NOT NULL,
+  year INT NOT NULL,
+  total_income DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE expenses (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  budget_id INT NOT NULL,
+  category VARCHAR(50) NOT NULL,
+  amount DECIMAL(10,2) NOT NULL,
+  date DATE NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (budget_id) REFERENCES budgets(id)
+);

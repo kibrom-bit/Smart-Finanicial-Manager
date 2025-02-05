@@ -1,0 +1,36 @@
+# Node.js dependencies
+/node_modules/
+
+# Build output
+/dist/
+/build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mac OS files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# IDE configuration files
+.vscode/
+.idea/
+
+# Dependency directories created by various tools
+/.cache
+/.npm
+
+# Temporary files
+*.swp
+*.swo
+
+# Test coverage reports
+/coverage/
+
+# Other
+*.tgz
