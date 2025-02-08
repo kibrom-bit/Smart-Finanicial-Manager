@@ -1,0 +1,71 @@
+@startuml
+title Personal Budget Planner System - Class Diagram
+
+class User {
+  - String username
+  - String password
+  + boolean authenticate(String, String)
+  + void createAccount(String, String)
+}
+
+class BudgetManager {
+  - int monthlyBudget
+  + void loadBudget(String, String)
+  + void setBudget(String, String, int)
+}
+
+class ExpenseManager {
+  - List<ExpenseEntry> expenses
+  + void addExpense(ExpenseEntry)
+  + void editExpense(int, ExpenseEntry)
+  + List<ExpenseEntry> getExpenses()
+  + int calculateTotalExpenses()
+}
+
+class SavingsManager {
+  - int savingsGoal
+  + void loadSavingsGoal(String, String)
+  + void setSavingsGoal(int)
+}
+
+class ExpenseEntry {
+  - LocalDate date
+  - int amount
+  - String category
+  + String toString()
+}
+
+class DateUtils {
+  + LocalDate <<static>> parseDate(String)
+}
+
+class SmartBudgetPlanner {
+  - User currentUser
+  - BudgetManager budgetManager
+  - ExpenseManager expenseManager
+  - SavingsManager savingsManager
+  + void run()
+  + void showDashboard()
+}
+
+
+SmartBudgetPlanner *-- "1" User : contains
+SmartBudgetPlanner *-- "1" BudgetManager : contains
+SmartBudgetPlanner *-- "1" ExpenseManager : contains
+SmartBudgetPlanner *-- "1" SavingsManager : contains
+ExpenseManager o-- "*" ExpenseEntry : aggregates
+ExpenseManager ..> DateUtils : uses
+SmartBudgetPlanner ..> DateUtils : uses
+
+note top of ExpenseEntry
+  Inner class of ExpenseManager
+  Represents individual expense entries
+  with date, amount, and category
+end note
+
+note right of SavingsManager
+  Optional component - user might
+  not set savings goals
+end note
+
+@enduml
