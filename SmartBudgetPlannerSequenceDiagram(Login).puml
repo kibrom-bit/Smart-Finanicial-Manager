@@ -1,0 +1,24 @@
+@startuml
+activate User
+User -> SmartBudgetPlanner: login()
+activate SmartBudgetPlanner
+SmartBudgetPlanner -> User: Enter username
+activate User
+User --> SmartBudgetPlanner: username
+deactivate User
+SmartBudgetPlanner -> User: Enter password
+activate User
+User --> SmartBudgetPlanner: password
+deactivate User
+SmartBudgetPlanner -> SmartBudgetPlanner: authenticate(username, password)
+activate SmartBudgetPlanner
+SmartBudgetPlanner -> File: read users.txt
+activate File
+File --> SmartBudgetPlanner: user data
+deactivate File
+SmartBudgetPlanner --> SmartBudgetPlanner: check credentials
+deactivate SmartBudgetPlanner
+SmartBudgetPlanner --> User: Login successful! / Invalid username or password
+deactivate SmartBudgetPlanner
+deactivate User
+@enduml
